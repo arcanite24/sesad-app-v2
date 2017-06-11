@@ -1,0 +1,15 @@
+<ion-content class="login-container">
+  <div class="header-container">
+    <img src="assets/img/login-logo.png" alt="Logo" class="login-logo" [class.theyHatin]="loader">
+  </div>
+  <div class="login-card-container animated fadeInUp">
+    <div class="login-card">
+      <h3 class="login-title">INICIAR SESIÓN</h3>
+      <p class="login-label">Boleta</p>
+      <input type="text" class="login-input" [(ngModel)]="loginData.username">
+      <p class="login-label">Contraseña</p>
+      <input type="password" class="login-input" [(ngModel)]="loginData.password">
+      <button class="login-button" (click)="login(loginData.username, loginData.password)">Entrar</button>
+    </div>
+  </div>
+</ion-content>

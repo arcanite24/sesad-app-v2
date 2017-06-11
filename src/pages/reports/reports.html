@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Reportes</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="openNewReport()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="beee">
+  <ion-list>
+    <ion-item *ngFor="let r of allReports">
+      <ion-icon name="clipboard" item-left></ion-icon>
+      <h2>{{r.createdAt | date:'medium'}}</h2>
+      <h3>{{r.desc}}</h3>
+      <p>{{r.item.name}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

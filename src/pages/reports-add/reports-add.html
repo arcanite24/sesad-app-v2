@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Añadir Reporte</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="beee" padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Objeto</ion-label>
+      <ion-select [(ngModel)]="addReporteData.item" okText="Ok" cancelText="Cerrar">
+        <ion-option [value]="item.id" *ngFor="let item of allItems">{{item.name ? item.name : 'Sin nombre'}} | Salón: {{item.salon ? item.salon.name : 'Salón sin nombre'}}</ion-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Descripción</ion-label>
+      <ion-input type="text" [(ngModel)]="addReporteData.desc"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button block (click)="addReporte()">Agregar</button>
+  <button ion-button block clear (click)="close()">Cancelar</button>
+
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Tareas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="beee">
+  <ion-list>
+    <ion-item *ngFor="let t of allTareas">
+      <ion-icon name="clipboard" item-left></ion-icon>
+      <h2>{{t.title}} - {{t.materia.name}}</h2>
+      <h3>{{t.desc}}</h3>
+      <p>{{t.entrega}} - {{t.profesor.firstName}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

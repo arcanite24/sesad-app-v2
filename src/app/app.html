@@ -1,1 +1,40 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-content class="menu-container">
+    <div class="menu-container flex-normal">
+      <div class="menu-user flex-normal">
+        <img src="assets/img/profile-logo.png" alt="Perfil">
+        <h3>{{(user ? user.firstName : 'Cargando...') + ' ' + (user ? user.lastName : 'Cargando...')}}</h3>
+        <p style="width: 100%;text-align: center">{{getStyledRoles(user ? user.roles : [])}}</p>
+      </div>
+      <div class="menu-pages flex-normal">
+        <ion-list>
+          <ion-item (click)="openPage(homePage)">
+            <ion-icon name="home" item-left></ion-icon>
+            Inicio
+          </ion-item>
+          <ion-item (click)="openProfile()">
+            <ion-icon name="person" item-left></ion-icon>
+            Perfil
+          </ion-item>
+          <ion-item (click)="openPage(reportsPage)">
+            <ion-icon name="alert" item-left></ion-icon>
+            Reportes
+          </ion-item>
+          <ion-item (click)="openPage(tareasPage)">
+            <ion-icon name="list-box" item-left></ion-icon>
+            Tareas
+          </ion-item>
+          <ion-item (click)="openPage(notasPage)">
+            <ion-icon name="book" item-left></ion-icon>
+            Notas
+          </ion-item>
+        </ion-list>
+      </div>
+      <div class="menu-footer flex-normal">
+        <button ion-button color="primary" clear (click)="logout()"><ion-icon name="exit"></ion-icon>&nbsp;&nbsp;Cerrar Sesión</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

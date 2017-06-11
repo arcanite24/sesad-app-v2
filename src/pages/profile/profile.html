@@ -1,0 +1,34 @@
+<ion-content>
+  <div class="login-container flex-normal">
+    <div class="head-container flex-normal">
+      <button ion-button color="light" clear (click)="close()">Regresar</button>
+    </div>
+    <div class="body-container flex-normal">
+      <img src="assets/img/profile-logo.png" alt="Imágen de perfil">
+      <div class="info-container flex-normal">
+        <h3>{{user.firstName + ' ' + user.lastName}}</h3>
+        <p>{{getStyledRoles(user.roles)}}</p>
+      </div>
+      <div class="mas-info flex-normal">
+        <ion-list>
+          <ion-item>
+            <ion-icon name="calendar" item-left></ion-icon>
+            <strong>Creación: </strong> {{user.createdAt | date:'medium'}}
+          </ion-item>
+          <ion-item>
+            <ion-icon name="mail" item-left></ion-icon>
+            <strong>Email: </strong> {{user.email}}
+          </ion-item>
+          <ion-item *ngIf="user.boleta">
+            <ion-icon name="card" item-left></ion-icon>
+            <strong>Boleta: </strong> {{user.boleta}}
+          </ion-item>
+          <ion-item *ngIf="user.grupo">
+            <ion-icon name="people" item-left></ion-icon>
+            <strong>Grupo: </strong> {{user.grupo.nombre}}
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+</ion-content>
